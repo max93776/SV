@@ -524,7 +524,7 @@ class Ui_MainWindow(object):
         self.p99.setIconSize(QtCore.QSize(200,200))
         self.p100.setIcon(QtGui.QIcon('Wellen.png'))
         self.p100.setIconSize(QtCore.QSize(200,200))
-        self.p1.clicked.connect(lambda checked, button=self.p1, state=self.states, idx=1: self.changeState(self.p1, self.states, 1))
+        self.p1.clicked.connect(lambda checked, button=self.p1, state=self.states, idx = 1: self.changeState(self.p1, self.states, 1))
         self.p2.clicked.connect(lambda checked, button=self.p2, state=self.states, idx = 2: self.changeState(self.p2, self.states, 2))
         self.p3.clicked.connect(lambda checked, button=self.p3, state=self.states, idx = 3: self.changeState(self.p3, self.states, 3))
         self.p4.clicked.connect(lambda checked, button=self.p4, state=self.states, idx = 4: self.changeState(self.p4, self.states, 4))
@@ -694,7 +694,7 @@ class Ui_MainWindow(object):
     def ChatStart(self, text):
         print(text)
         if text == "Game.start":
-            GameEngine.findShips(self.states)
+            print(GameEngine.findShips(self.states))
         self.lineEdit.clear()
 
 class GameEngine:    
@@ -711,30 +711,75 @@ class GameEngine:
     
     @staticmethod
     def findShips(states: list)-> list:
-        ships = [[],[],[],[]]
+        ships = []
+        ship_lenghts = [0,0,0,0,0,0]
+        # X-Achse
         for i in range(0,10):
-            for j in range(0,10):
-                num = i*10+j
-                if states[num] == 1:
-                    if j < 4:
-                        if states[num+1] == 1 and states[num+2] == 1 and states[num+3] == 1 and states[num+4] == 1 and states[num+5] != 1:
-                            ships[0].append([num,num+1,num+2,num+3,num+4])
-                            break
-                    if j < 5:
-                        if states[num+1] == 1 and states[num+2] == 1 and states[num+3] == 1 and states[num+4] != 1:
-                            ships[1].append([num,num+1,num+2,num+3])
-                            break
-                    if j < 6:
-                        if states[num+1] == 1 and states[num+2] == 1 and states[num+3] != 1:
-                            ships[2].append([num,num+1,num+2])
-                            break
-                    if j < 7:
-                        if states[num+1] == 1 and states[num+2] != 1:
-                            ships[3].append([num,num+1])   
-                            break
+            print(states[i*10+1], states[i*10+2], states[i*10+3], states[i*10+4], states[i*10+5], states[i*10+6], states[i*10+7], states[i*10+8], states[i*10+9], states[i*10+10])
+            ships.append(GameEngine.checkRow([states[i*10+1], states[i*10+2], states[i*10+3], states[i*10+4], states[i*10+5], states[i*10+6], states[i*10+7], states[i*10+8], states[i*10+9], states[i*10+10]]))
+        for j in ships:
+            for e in j:
+                if len(e) < 2 or len(e) > 5:
+                    print("Len error: " + str(len(e)))
+                else: 
+                    print("No lenght error")
+                    ship_lenghts[len(e)]+=1
+        print(ship_lenghts)
+        ships = []
+        # Y-Achse
+        for i in range(0,10):
+            print(states[i+1], states[i+11], states[i+21], states[i+31], states[i+41], states[i+51], states[i+61], states[i+71], states[i+81], states[i+91])
+            ships.append(GameEngine.checkRow([states[i+1], states[i+11], states[i+21], states[i+31], states[i+41], states[i+51], states[i+61], states[i+71], states[i+81], states[i+91]]))
         print(ships)
+        if GameEngine.findCommon(ships):
+            print(GameEngine.findCommon(ships))
+        for j in ships:
+            for e in j:
+                if len(e) < 2 or len(e) > 5:
+                    print("Len error: " + str(len(e)))
+                else: 
+                    print("No lenght error")
+                    ship_lenghts[len(e)]+=1
+        print(ship_lenghts)
+        if ship_lenghts[2] != 4 or ship_lenghts[3] != 3 or ship_lenghts[4] != 2 or ship_lenghts[5] != 1:
+            return 2
+        
         return ships
-                        
+    
+    @staticmethod
+    def checkRow(col: list)-> list:
+        a = [i for i, e in enumerate(col) if e == 1]
+        groups = []
+        current_group = []
+
+        for num in a:
+            if not current_group or num == current_group[-1] + 1:
+                current_group.append(num)
+            else:
+                groups.append(current_group)
+                current_group = [num]
+
+        if current_group:
+            groups.append(current_group)
+
+        return groups
+
+    @staticmethod    
+    def findCommon(lists: list)-> list:
+        # Ergebnisliste für die Schnittmengen
+        set_list = []
+        for i in lists:
+            for j in i:
+                for k in j:
+                    set_list.append(k)
+        print("Setlist: " + str(set_list))
+
+        duplicates = list(set([x for x in set_list if set_list.count(x) > 1]))
+
+        print("Dup: "+str(duplicates))  # Ausgabe: [2, 3, 5]
+
+        return duplicates    
+            
     def setMatrix(self, states):
         self._matrix = states
         

@@ -7,14 +7,19 @@ class Ui_MainWindow(object):
         MainWindow.resize(1622, 951)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.console = QtWidgets.QScrollArea(self.centralwidget)
+        """self.console = QtWidgets.QTextEdit(self.centralwidget)
         self.console.setGeometry(QtCore.QRect(10, 850, 1041, 51))
-        self.console.setWidgetResizable(True)
+        self.console.setObjectName("console")"""
+        #
+        self.console = QtWidgets.QTextEdit(self.centralwidget)
+        self.console.setGeometry(QtCore.QRect(10, 850, 1041, 51))
+        self.console.setReadOnly(True)
         self.console.setObjectName("console")
+        #
         self.scrollAreaWidgetContents = QtWidgets.QWidget()
         self.scrollAreaWidgetContents.setGeometry(QtCore.QRect(0, 0, 1039, 49))
         self.scrollAreaWidgetContents.setObjectName("scrollAreaWidgetContents")
-        self.console.setWidget(self.scrollAreaWidgetContents)
+        #self.console.setWidget(self.scrollAreaWidgetContents)
         self.IP = QtWidgets.QLabel(self.centralwidget)
         self.IP.setGeometry(QtCore.QRect(1240, 870, 381, 31))
         self.IP.setObjectName("IP")
@@ -318,106 +323,308 @@ class Ui_MainWindow(object):
         self.p100 = QtWidgets.QPushButton(self.centralwidget)
         self.p100.setGeometry(QtCore.QRect(970, 740, 71, 71))
         self.p100.setObjectName("p100")
-        self.s1=0
-        self.s2=0
-        self.s3=0
-        self.s4=0
-        self.s5=0
-        self.s6=0
-        self.s7=0
-        self.s8=0
-        self.s9=0
-        self.s10=0
-        self.s11=0
-        self.s12=0
-        self.s13=0
-        self.s14=0
-        self.s15=0
-        self.s16=0
-        self.s17=0
-        self.s18=0
-        self.s19=0
-        self.s20=0
-        self.s21=0
-        self.s22=0
-        self.s23=0
-        self.s24=0
-        self.s25=0
-        self.s26=0
-        self.s27=0
-        self.s28=0
-        self.s29=0
-        self.s30=0
-        self.s31=0
-        self.s32=0
-        self.s33=0
-        self.s34=0
-        self.s35=0
-        self.s36=0
-        self.s37=0
-        self.s38=0
-        self.s39=0
-        self.s40=0
-        self.s41=0
-        self.s42=0
-        self.s43=0
-        self.s44=0
-        self.s45=0
-        self.s46=0
-        self.s47=0
-        self.s48=0
-        self.s49=0
-        self.s50=0
-        self.s51=0
-        self.s52=0
-        self.s53=0
-        self.s54=0
-        self.s55=0
-        self.s56=0
-        self.s57=0
-        self.s58=0
-        self.s59=0
-        self.s60=0
-        self.s61=0
-        self.s62=0
-        self.s63=0
-        self.s64=0
-        self.s65=0
-        self.s66=0
-        self.s67=0
-        self.s68=0
-        self.s69=0
-        self.s70=0
-        self.s71=0
-        self.s72=0
-        self.s73=0
-        self.s74=0
-        self.s75=0
-        self.s76=0
-        self.s77=0
-        self.s78=0
-        self.s79=0
-        self.s80=0
-        self.s81=0
-        self.s82=0
-        self.s83=0
-        self.s84=0
-        self.s85=0
-        self.s86=0
-        self.s87=0
-        self.s88=0
-        self.s89=0
-        self.s90=0
-        self.s91=0
-        self.s92=0
-        self.s93=0
-        self.s94=0
-        self.s95=0
-        self.s96=0
-        self.s97=0
-        self.s98=0
-        self.s99=0
-        self.s100=0
+        self.states = 101*[0]
+        self.p1.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p1.setIconSize(QtCore.QSize(200,200))
+        self.p2.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p2.setIconSize(QtCore.QSize(200,200))
+        self.p3.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p3.setIconSize(QtCore.QSize(200,200))
+        self.p4.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p4.setIconSize(QtCore.QSize(200,200))
+        self.p5.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p5.setIconSize(QtCore.QSize(200,200))
+        self.p6.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p6.setIconSize(QtCore.QSize(200,200))
+        self.p7.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p7.setIconSize(QtCore.QSize(200,200))
+        self.p8.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p8.setIconSize(QtCore.QSize(200,200))
+        self.p9.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p9.setIconSize(QtCore.QSize(200,200))
+        self.p10.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p10.setIconSize(QtCore.QSize(200,200))
+        self.p11.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p11.setIconSize(QtCore.QSize(200,200))
+        self.p12.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p12.setIconSize(QtCore.QSize(200,200))
+        self.p13.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p13.setIconSize(QtCore.QSize(200,200))
+        self.p14.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p14.setIconSize(QtCore.QSize(200,200))
+        self.p15.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p15.setIconSize(QtCore.QSize(200,200))
+        self.p16.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p16.setIconSize(QtCore.QSize(200,200))
+        self.p17.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p17.setIconSize(QtCore.QSize(200,200))
+        self.p18.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p18.setIconSize(QtCore.QSize(200,200))
+        self.p19.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p19.setIconSize(QtCore.QSize(200,200))
+        self.p20.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p20.setIconSize(QtCore.QSize(200,200))
+        self.p21.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p21.setIconSize(QtCore.QSize(200,200))
+        self.p22.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p22.setIconSize(QtCore.QSize(200,200))
+        self.p23.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p23.setIconSize(QtCore.QSize(200,200))
+        self.p24.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p24.setIconSize(QtCore.QSize(200,200))
+        self.p25.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p25.setIconSize(QtCore.QSize(200,200))
+        self.p26.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p26.setIconSize(QtCore.QSize(200,200))
+        self.p27.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p27.setIconSize(QtCore.QSize(200,200))
+        self.p28.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p28.setIconSize(QtCore.QSize(200,200))
+        self.p29.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p29.setIconSize(QtCore.QSize(200,200))
+        self.p30.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p30.setIconSize(QtCore.QSize(200,200))
+        self.p31.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p31.setIconSize(QtCore.QSize(200,200))
+        self.p32.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p32.setIconSize(QtCore.QSize(200,200))
+        self.p33.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p33.setIconSize(QtCore.QSize(200,200))
+        self.p34.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p34.setIconSize(QtCore.QSize(200,200))
+        self.p35.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p35.setIconSize(QtCore.QSize(200,200))
+        self.p36.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p36.setIconSize(QtCore.QSize(200,200))
+        self.p37.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p37.setIconSize(QtCore.QSize(200,200))
+        self.p38.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p38.setIconSize(QtCore.QSize(200,200))
+        self.p39.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p39.setIconSize(QtCore.QSize(200,200))
+        self.p40.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p40.setIconSize(QtCore.QSize(200,200))
+        self.p41.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p41.setIconSize(QtCore.QSize(200,200))
+        self.p42.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p42.setIconSize(QtCore.QSize(200,200))
+        self.p43.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p43.setIconSize(QtCore.QSize(200,200))
+        self.p44.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p44.setIconSize(QtCore.QSize(200,200))
+        self.p45.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p45.setIconSize(QtCore.QSize(200,200))
+        self.p46.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p46.setIconSize(QtCore.QSize(200,200))
+        self.p47.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p47.setIconSize(QtCore.QSize(200,200))
+        self.p48.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p48.setIconSize(QtCore.QSize(200,200))
+        self.p49.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p49.setIconSize(QtCore.QSize(200,200))
+        self.p50.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p50.setIconSize(QtCore.QSize(200,200))
+        self.p51.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p51.setIconSize(QtCore.QSize(200,200))
+        self.p52.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p52.setIconSize(QtCore.QSize(200,200))
+        self.p53.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p53.setIconSize(QtCore.QSize(200,200))
+        self.p54.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p54.setIconSize(QtCore.QSize(200,200))
+        self.p55.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p55.setIconSize(QtCore.QSize(200,200))
+        self.p56.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p56.setIconSize(QtCore.QSize(200,200))
+        self.p57.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p57.setIconSize(QtCore.QSize(200,200))
+        self.p58.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p58.setIconSize(QtCore.QSize(200,200))
+        self.p59.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p59.setIconSize(QtCore.QSize(200,200))
+        self.p60.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p60.setIconSize(QtCore.QSize(200,200))
+        self.p61.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p61.setIconSize(QtCore.QSize(200,200))
+        self.p62.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p62.setIconSize(QtCore.QSize(200,200))
+        self.p63.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p63.setIconSize(QtCore.QSize(200,200))
+        self.p64.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p64.setIconSize(QtCore.QSize(200,200))
+        self.p65.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p65.setIconSize(QtCore.QSize(200,200))
+        self.p66.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p66.setIconSize(QtCore.QSize(200,200))
+        self.p67.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p67.setIconSize(QtCore.QSize(200,200))
+        self.p68.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p68.setIconSize(QtCore.QSize(200,200))
+        self.p69.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p69.setIconSize(QtCore.QSize(200,200))
+        self.p70.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p70.setIconSize(QtCore.QSize(200,200))
+        self.p71.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p71.setIconSize(QtCore.QSize(200,200))
+        self.p72.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p72.setIconSize(QtCore.QSize(200,200))
+        self.p73.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p73.setIconSize(QtCore.QSize(200,200))
+        self.p74.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p74.setIconSize(QtCore.QSize(200,200))
+        self.p75.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p75.setIconSize(QtCore.QSize(200,200))
+        self.p76.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p76.setIconSize(QtCore.QSize(200,200))
+        self.p77.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p77.setIconSize(QtCore.QSize(200,200))
+        self.p78.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p78.setIconSize(QtCore.QSize(200,200))
+        self.p79.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p79.setIconSize(QtCore.QSize(200,200))
+        self.p80.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p80.setIconSize(QtCore.QSize(200,200))
+        self.p81.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p81.setIconSize(QtCore.QSize(200,200))
+        self.p82.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p82.setIconSize(QtCore.QSize(200,200))
+        self.p83.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p83.setIconSize(QtCore.QSize(200,200))
+        self.p84.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p84.setIconSize(QtCore.QSize(200,200))
+        self.p85.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p85.setIconSize(QtCore.QSize(200,200))
+        self.p86.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p86.setIconSize(QtCore.QSize(200,200))
+        self.p87.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p87.setIconSize(QtCore.QSize(200,200))
+        self.p88.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p88.setIconSize(QtCore.QSize(200,200))
+        self.p89.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p89.setIconSize(QtCore.QSize(200,200))
+        self.p90.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p90.setIconSize(QtCore.QSize(200,200))
+        self.p91.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p91.setIconSize(QtCore.QSize(200,200))
+        self.p92.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p92.setIconSize(QtCore.QSize(200,200))
+        self.p93.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p93.setIconSize(QtCore.QSize(200,200))
+        self.p94.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p94.setIconSize(QtCore.QSize(200,200))
+        self.p95.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p95.setIconSize(QtCore.QSize(200,200))
+        self.p96.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p96.setIconSize(QtCore.QSize(200,200))
+        self.p97.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p97.setIconSize(QtCore.QSize(200,200))
+        self.p98.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p98.setIconSize(QtCore.QSize(200,200))
+        self.p99.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p99.setIconSize(QtCore.QSize(200,200))
+        self.p100.setIcon(QtGui.QIcon('Wellen.png'))
+        self.p100.setIconSize(QtCore.QSize(200,200))
+        self.p1.clicked.connect(lambda checked, button=self.p1, state=self.states, idx=1: self.changeState(self.p1, self.states, 1))
+        self.p2.clicked.connect(lambda checked, button=self.p2, state=self.states, idx = 2: self.changeState(self.p2, self.states, 2))
+        self.p3.clicked.connect(lambda checked, button=self.p3, state=self.states, idx = 3: self.changeState(self.p3, self.states, 3))
+        self.p4.clicked.connect(lambda checked, button=self.p4, state=self.states, idx = 4: self.changeState(self.p4, self.states, 4))
+        self.p5.clicked.connect(lambda checked, button=self.p5, state=self.states, idx = 5: self.changeState(self.p5, self.states, 5))
+        self.p6.clicked.connect(lambda checked, button=self.p6, state=self.states, idx = 6: self.changeState(self.p6, self.states, 6))
+        self.p7.clicked.connect(lambda checked, button=self.p7, state=self.states, idx = 7: self.changeState(self.p7, self.states, 7))
+        self.p8.clicked.connect(lambda checked, button=self.p8, state=self.states, idx = 8: self.changeState(self.p8, self.states, 8))
+        self.p9.clicked.connect(lambda checked, button=self.p9, state=self.states, idx = 9: self.changeState(self.p9, self.states, 9))
+        self.p10.clicked.connect(lambda checked, button=self.p10, state=self.states, idx = 10: self.changeState(self.p10, self.states, 10))
+        self.p11.clicked.connect(lambda checked, button=self.p11, state=self.states, idx = 11: self.changeState(self.p11, self.states, 11))
+        self.p12.clicked.connect(lambda checked, button=self.p12, state=self.states, idx = 12: self.changeState(self.p12, self.states, 12))
+        self.p13.clicked.connect(lambda checked, button=self.p13, state=self.states, idx = 13: self.changeState(self.p13, self.states, 13))
+        self.p14.clicked.connect(lambda checked, button=self.p14, state=self.states, idx = 14: self.changeState(self.p14, self.states, 14))
+        self.p15.clicked.connect(lambda checked, button=self.p15, state=self.states, idx = 15: self.changeState(self.p15, self.states, 15))
+        self.p16.clicked.connect(lambda checked, button=self.p16, state=self.states, idx = 16: self.changeState(self.p16, self.states, 16))
+        self.p17.clicked.connect(lambda checked, button=self.p17, state=self.states, idx = 17: self.changeState(self.p17, self.states, 17))
+        self.p18.clicked.connect(lambda checked, button=self.p18, state=self.states, idx = 18: self.changeState(self.p18, self.states, 18))
+        self.p19.clicked.connect(lambda checked, button=self.p19, state=self.states, idx = 19: self.changeState(self.p19, self.states, 19))
+        self.p20.clicked.connect(lambda checked, button=self.p20, state=self.states, idx = 20: self.changeState(self.p20, self.states, 20))
+        self.p21.clicked.connect(lambda checked, button=self.p21, state=self.states, idx = 21: self.changeState(self.p21, self.states, 21))
+        self.p22.clicked.connect(lambda checked, button=self.p22, state=self.states, idx = 22: self.changeState(self.p22, self.states, 22))
+        self.p23.clicked.connect(lambda checked, button=self.p23, state=self.states, idx = 23: self.changeState(self.p23, self.states, 23))
+        self.p24.clicked.connect(lambda checked, button=self.p24, state=self.states, idx = 24: self.changeState(self.p24, self.states, 24))
+        self.p25.clicked.connect(lambda checked, button=self.p25, state=self.states, idx = 25: self.changeState(self.p25, self.states, 25))
+        self.p26.clicked.connect(lambda checked, button=self.p26, state=self.states, idx = 26: self.changeState(self.p26, self.states, 26))
+        self.p27.clicked.connect(lambda checked, button=self.p27, state=self.states, idx = 27: self.changeState(self.p27, self.states, 27))
+        self.p28.clicked.connect(lambda checked, button=self.p28, state=self.states, idx = 28: self.changeState(self.p28, self.states, 28))
+        self.p29.clicked.connect(lambda checked, button=self.p29, state=self.states, idx = 29: self.changeState(self.p29, self.states, 29))
+        self.p30.clicked.connect(lambda checked, button=self.p30, state=self.states, idx = 30: self.changeState(self.p30, self.states, 30))
+        self.p31.clicked.connect(lambda checked, button=self.p31, state=self.states, idx = 31: self.changeState(self.p31, self.states, 31))
+        self.p32.clicked.connect(lambda checked, button=self.p32, state=self.states, idx = 32: self.changeState(self.p32, self.states, 32))
+        self.p33.clicked.connect(lambda checked, button=self.p33, state=self.states, idx = 33: self.changeState(self.p33, self.states, 33))
+        self.p34.clicked.connect(lambda checked, button=self.p34, state=self.states, idx = 34: self.changeState(self.p34, self.states, 34))
+        self.p35.clicked.connect(lambda checked, button=self.p35, state=self.states, idx = 35: self.changeState(self.p35, self.states, 35))
+        self.p36.clicked.connect(lambda checked, button=self.p36, state=self.states, idx = 36: self.changeState(self.p36, self.states, 36))
+        self.p37.clicked.connect(lambda checked, button=self.p37, state=self.states, idx = 37: self.changeState(self.p37, self.states, 37))
+        self.p38.clicked.connect(lambda checked, button=self.p38, state=self.states, idx = 38: self.changeState(self.p38, self.states, 38))
+        self.p39.clicked.connect(lambda checked, button=self.p39, state=self.states, idx = 39: self.changeState(self.p39, self.states, 39))
+        self.p40.clicked.connect(lambda checked, button=self.p40, state=self.states, idx = 40: self.changeState(self.p40, self.states, 40))
+        self.p41.clicked.connect(lambda checked, button=self.p41, state=self.states, idx = 41: self.changeState(self.p41, self.states, 41))
+        self.p42.clicked.connect(lambda checked, button=self.p42, state=self.states, idx = 42: self.changeState(self.p42, self.states, 42))
+        self.p43.clicked.connect(lambda checked, button=self.p43, state=self.states, idx = 43: self.changeState(self.p43, self.states, 43))
+        self.p44.clicked.connect(lambda checked, button=self.p44, state=self.states, idx = 44: self.changeState(self.p44, self.states, 44))
+        self.p45.clicked.connect(lambda checked, button=self.p45, state=self.states, idx = 45: self.changeState(self.p45, self.states, 45))
+        self.p46.clicked.connect(lambda checked, button=self.p46, state=self.states, idx = 46: self.changeState(self.p46, self.states, 46))
+        self.p47.clicked.connect(lambda checked, button=self.p47, state=self.states, idx = 47: self.changeState(self.p47, self.states, 47))
+        self.p48.clicked.connect(lambda checked, button=self.p48, state=self.states, idx = 48: self.changeState(self.p48, self.states, 48))
+        self.p49.clicked.connect(lambda checked, button=self.p49, state=self.states, idx = 49: self.changeState(self.p49, self.states, 49))
+        self.p50.clicked.connect(lambda checked, button=self.p50, state=self.states, idx = 50: self.changeState(self.p50, self.states, 50))
+        self.p51.clicked.connect(lambda checked, button=self.p51, state=self.states, idx = 51: self.changeState(self.p51, self.states, 51))
+        self.p52.clicked.connect(lambda checked, button=self.p52, state=self.states, idx = 52: self.changeState(self.p52, self.states, 52))
+        self.p53.clicked.connect(lambda checked, button=self.p53, state=self.states, idx = 53: self.changeState(self.p53, self.states, 53))
+        self.p54.clicked.connect(lambda checked, button=self.p54, state=self.states, idx = 54: self.changeState(self.p54, self.states, 54))
+        self.p55.clicked.connect(lambda checked, button=self.p55, state=self.states, idx = 55: self.changeState(self.p55, self.states, 55))
+        self.p56.clicked.connect(lambda checked, button=self.p56, state=self.states, idx = 56: self.changeState(self.p56, self.states, 56))
+        self.p57.clicked.connect(lambda checked, button=self.p57, state=self.states, idx = 57: self.changeState(self.p57, self.states, 57))
+        self.p58.clicked.connect(lambda checked, button=self.p58, state=self.states, idx = 58: self.changeState(self.p58, self.states, 58))
+        self.p59.clicked.connect(lambda checked, button=self.p59, state=self.states, idx = 59: self.changeState(self.p59, self.states, 59))
+        self.p60.clicked.connect(lambda checked, button=self.p60, state=self.states, idx = 60: self.changeState(self.p60, self.states, 60))
+        self.p61.clicked.connect(lambda checked, button=self.p61, state=self.states, idx = 61: self.changeState(self.p61, self.states, 61))
+        self.p62.clicked.connect(lambda checked, button=self.p62, state=self.states, idx = 62: self.changeState(self.p62, self.states, 62))
+        self.p63.clicked.connect(lambda checked, button=self.p63, state=self.states, idx = 63: self.changeState(self.p63, self.states, 63))
+        self.p64.clicked.connect(lambda checked, button=self.p64, state=self.states, idx = 64: self.changeState(self.p64, self.states, 64))
+        self.p65.clicked.connect(lambda checked, button=self.p65, state=self.states, idx = 65: self.changeState(self.p65, self.states, 65))
+        self.p66.clicked.connect(lambda checked, button=self.p66, state=self.states, idx = 66: self.changeState(self.p66, self.states, 66))
+        self.p67.clicked.connect(lambda checked, button=self.p67, state=self.states, idx = 67: self.changeState(self.p67, self.states, 67))
+        self.p68.clicked.connect(lambda checked, button=self.p68, state=self.states, idx = 68: self.changeState(self.p68, self.states, 68))
+        self.p69.clicked.connect(lambda checked, button=self.p69, state=self.states, idx = 69: self.changeState(self.p69, self.states, 69))
+        self.p70.clicked.connect(lambda checked, button=self.p70, state=self.states, idx = 70: self.changeState(self.p70, self.states, 70))
+        self.p71.clicked.connect(lambda checked, button=self.p71, state=self.states, idx = 71: self.changeState(self.p71, self.states, 71))
+        self.p72.clicked.connect(lambda checked, button=self.p72, state=self.states, idx = 72: self.changeState(self.p72, self.states, 72))
+        self.p73.clicked.connect(lambda checked, button=self.p73, state=self.states, idx = 73: self.changeState(self.p73, self.states, 73))
+        self.p74.clicked.connect(lambda checked, button=self.p74, state=self.states, idx = 74: self.changeState(self.p74, self.states, 74))
+        self.p75.clicked.connect(lambda checked, button=self.p75, state=self.states, idx = 75: self.changeState(self.p75, self.states, 75))
+        self.p76.clicked.connect(lambda checked, button=self.p76, state=self.states, idx = 76: self.changeState(self.p76, self.states, 76))
+        self.p77.clicked.connect(lambda checked, button=self.p77, state=self.states, idx = 77: self.changeState(self.p77, self.states, 77))
+        self.p78.clicked.connect(lambda checked, button=self.p78, state=self.states, idx = 78: self.changeState(self.p78, self.states, 78))
+        self.p79.clicked.connect(lambda checked, button=self.p79, state=self.states, idx = 79: self.changeState(self.p79, self.states, 79))
+        self.p80.clicked.connect(lambda checked, button=self.p80, state=self.states, idx = 80: self.changeState(self.p80, self.states, 80))
+        self.p81.clicked.connect(lambda checked, button=self.p81, state=self.states, idx = 81: self.changeState(self.p81, self.states, 81))
+        self.p82.clicked.connect(lambda checked, button=self.p82, state=self.states, idx = 82: self.changeState(self.p82, self.states, 82))
+        self.p83.clicked.connect(lambda checked, button=self.p83, state=self.states, idx = 83: self.changeState(self.p83, self.states, 83))
+        self.p84.clicked.connect(lambda checked, button=self.p84, state=self.states, idx = 84: self.changeState(self.p84, self.states, 84))
+        self.p85.clicked.connect(lambda checked, button=self.p85, state=self.states, idx = 85: self.changeState(self.p85, self.states, 85))
+        self.p86.clicked.connect(lambda checked, button=self.p86, state=self.states, idx = 86: self.changeState(self.p86, self.states, 86))
+        self.p87.clicked.connect(lambda checked, button=self.p87, state=self.states, idx = 87: self.changeState(self.p87, self.states, 87))
+        self.p88.clicked.connect(lambda checked, button=self.p88, state=self.states, idx = 88: self.changeState(self.p88, self.states, 88))
+        self.p89.clicked.connect(lambda checked, button=self.p89, state=self.states, idx = 89: self.changeState(self.p89, self.states, 89))
+        self.p90.clicked.connect(lambda checked, button=self.p90, state=self.states, idx = 90: self.changeState(self.p90, self.states, 90))
+        self.p91.clicked.connect(lambda checked, button=self.p91, state=self.states, idx = 91: self.changeState(self.p91, self.states, 91))
+        self.p92.clicked.connect(lambda checked, button=self.p92, state=self.states, idx = 92: self.changeState(self.p92, self.states, 92))
+        self.p93.clicked.connect(lambda checked, button=self.p93, state=self.states, idx = 93: self.changeState(self.p93, self.states, 93))
+        self.p94.clicked.connect(lambda checked, button=self.p94, state=self.states, idx = 94: self.changeState(self.p94, self.states, 94))
+        self.p95.clicked.connect(lambda checked, button=self.p95, state=self.states, idx = 95: self.changeState(self.p95, self.states, 95))
+        self.p96.clicked.connect(lambda checked, button=self.p96, state=self.states, idx = 96: self.changeState(self.p96, self.states, 96))
+        self.p97.clicked.connect(lambda checked, button=self.p97, state=self.states, idx = 97: self.changeState(self.p97, self.states, 97))
+        self.p98.clicked.connect(lambda checked, button=self.p98, state=self.states, idx = 98: self.changeState(self.p98, self.states, 98))
+        self.p99.clicked.connect(lambda checked, button=self.p99, state=self.states, idx = 99: self.changeState(self.p99, self.states, 99))
+        self.p100.clicked.connect(lambda checked, button=self.p100, state=self.states, idx = 100: self.changeState(self.p100, self.states, 100))
+        
         self.Name = QtWidgets.QLabel(self.centralwidget)
         self.Name.setGeometry(QtCore.QRect(50, 20, 111, 31))
         self.Name.setObjectName("Name")
@@ -430,9 +637,11 @@ class Ui_MainWindow(object):
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(1110, 730, 121, 51))
         self.pushButton.setObjectName("pushButton")
+        self.pushButton.clicked.connect(lambda mes, text=self.lineEdit.text(): self.ChatStart(self.lineEdit.text()))
         self.pushButton_2 = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton_2.setGeometry(QtCore.QRect(1430, 730, 121, 51))
         self.pushButton_2.setObjectName("pushButton_2")
+        self.pushButton_2.clicked.connect(self.lineEdit.clear)
         self.ChatArea = QtWidgets.QTextEdit(self.centralwidget)
         self.ChatArea.setGeometry(QtCore.QRect(1110, 80, 441, 571))
         self.ChatArea.setObjectName("ChatArea")
@@ -447,7 +656,11 @@ class Ui_MainWindow(object):
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
-
+        
+        ###
+        self.console.append("1. Bitte 1 Schlachtschiff (5 Kästchen), 2 Kreuzer (4 Kästchen), 3 Zerstörer (3 Kästchen) und 4 U-Boote (2 Kästchen) eintragen.")
+        self.console.append("2. Dann in den Chat 'Game.start' eingeben.")
+        self.console.append("3. Falls Fehlermedlung kommt, ab Schritt 1 erneut ausführen.")
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "SV"))
@@ -464,16 +677,82 @@ class Ui_MainWindow(object):
         1+1
         #self.IP.setText(addr)
         
+    def changeState(self, button, state, idx):
+        print(f'Button "{button.text()}" wurde geklickt.')
+        if state[idx] == 0:
+            button.setIcon(QtGui.QIcon('Schiff.png'))
+            button.setIconSize(QtCore.QSize(200,200))
+            state[idx] = 1
+        elif state[idx] == 1:
+            button.setIcon(QtGui.QIcon('Wellen.png'))
+            button.setIconSize(QtCore.QSize(200,200))
+            state[idx] = 0
+            
+        if sum(state) == 8:
+            1+1
+            
+    def ChatStart(self, text):
+        print(text)
+        if text == "Game.start":
+            GameEngine.findShips(self.states)
+        self.lineEdit.clear()
+
+class GameEngine:    
+    """
+    1 Schlachtschiff 5 Kästchen
+    2 Kreuzer 4 Kästchen
+    3 Zerstörer 3 Kästchen
+    4 U-Boote 2 Kästchen
+    """
+    @staticmethod
+    def checkValid(states):
+        if sum(states) < 30:
+            return 1 # zu viele Kästchen ausgewählt
+    
+    @staticmethod
+    def findShips(states: list)-> list:
+        ships = [[],[],[],[]]
+        for i in range(0,10):
+            for j in range(0,10):
+                num = i*10+j
+                if states[num] == 1:
+                    if j < 4:
+                        if states[num+1] == 1 and states[num+2] == 1 and states[num+3] == 1 and states[num+4] == 1 and states[num+5] != 1:
+                            ships[0].append([num,num+1,num+2,num+3,num+4])
+                            break
+                    if j < 5:
+                        if states[num+1] == 1 and states[num+2] == 1 and states[num+3] == 1 and states[num+4] != 1:
+                            ships[1].append([num,num+1,num+2,num+3])
+                            break
+                    if j < 6:
+                        if states[num+1] == 1 and states[num+2] == 1 and states[num+3] != 1:
+                            ships[2].append([num,num+1,num+2])
+                            break
+                    if j < 7:
+                        if states[num+1] == 1 and states[num+2] != 1:
+                            ships[3].append([num,num+1])   
+                            break
+        print(ships)
+        return ships
+                        
+    def setMatrix(self, states):
+        self._matrix = states
+        
+    def hit(hit):
+        return 0
+    
+    
+            
 if __name__ == "__main__":
     import sys
     app = QtWidgets.QApplication(sys.argv)
     MainWindow = QtWidgets.QMainWindow()
-    from server import TCPconnection
-    t = TCPconnection()
-    t.startlistening()
+    #from server import TCPconnection
+    #t = TCPconnection()
+    #t.startlistening()
     ui = Ui_MainWindow()
-    ui.setIP(t.getipaddr())
-    t.setWindow(ui)
+    #ui.setIP(t.getipaddr())
+    #t.setWindow(ui)
     ui.setupUi(MainWindow)
     MainWindow.show()
     sys.exit(app.exec_())
